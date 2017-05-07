@@ -16,5 +16,35 @@ namespace Mega_Escritorio
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DrawerNum_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeskWidth_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeskDepth_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RushOrderNum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
