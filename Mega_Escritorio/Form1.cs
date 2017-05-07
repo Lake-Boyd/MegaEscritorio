@@ -46,5 +46,30 @@ namespace Mega_Escritorio
         {
 
         }
+
+        private void deskDepth_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deskWidth_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drawerNum_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deskMaterial_Select(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rushOrder_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
