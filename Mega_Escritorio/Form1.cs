@@ -137,7 +137,7 @@ namespace Mega_Escritorio
 
             quote = basePrice + deskAreaPremium + drawerCost + materialPremium + shippingPremium;
 
-            priceQuote.Text = "$" + quote.ToString();
+            priceQuote.Text = "$" + quote.ToString() + ".00";
 
 
 
