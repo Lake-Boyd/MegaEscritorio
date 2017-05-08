@@ -134,23 +134,23 @@ namespace Mega_Escritorio
 
             if (threeDayRadio.Checked)
                 {
-                if (area < 1000) shippingPremium = 60;
-                if ((area >= 1001) && (area <= 1999)) shippingPremium = 70;
-                if (area >= 2000) shippingPremium = 80;
+                    if (area < 1000) shippingPremium = 60;
+                    else if ((area >= 1001) && (area <= 1999)) shippingPremium = 70;
+                    else shippingPremium = 80;
                 }
 
             else if (fiveDayRadio.Checked)
                 {
                     if (area < 1000) shippingPremium = 40;
-                    if ((area >= 1000) && (area <= 1999)) shippingPremium = 50;
-                    if (area >= 2000) shippingPremium = 60;
+                    else if ((area >= 1000) && (area <= 1999)) shippingPremium = 50;
+                    else shippingPremium = 60;
                 }
 
             else if (sevenDayRadio.Checked)
                 {
                     if (area < 1000) shippingPremium = 30;
-                    if ((area >= 1001) && (area <= 1999)) shippingPremium = 30;
-                    if (area >= 2000) shippingPremium = 40;
+                    else if ((area >= 1001) && (area <= 1999)) shippingPremium = 30;
+                    else shippingPremium = 40;
                 }
 
             if (standardRadio.Checked) shippingPremium = 0;
