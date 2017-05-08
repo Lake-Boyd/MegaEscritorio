@@ -11,6 +11,47 @@ namespace Mega_Escritorio
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        public class Desk
+        {
+
+
+
+            public static double deskArea(double width, double depth)
+            {
+
+                double area = width * depth;
+                return area;
+
+            }
+
+            public static int drawersToInt(decimal drawers)
+            {
+                int drawerInt = Decimal.ToInt32(drawers);
+                return drawerInt;
+
+            }
+
+
+        }
+
+        public class DeskController
+        {
+
+            public static double makeQuote(double x, double y, double z, double i, double j )
+            {
+
+
+
+
+                double quote = x + y + z + i + j;
+                return quote;
+
+            }
+
+
+        }
+
         [STAThread]
         static void Main()
         {

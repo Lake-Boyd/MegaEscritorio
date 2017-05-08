@@ -7,16 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Mega_Escritorio.Program;
 
 namespace Mega_Escritorio
 {
+
+
+
+
     public partial class Form1 : Form
     {
+
+
+
 
         double width;
         double depth;
 
-        int drawers;
+        decimal drawers;
 
         double materialPremium;
         double shippingPremium;
@@ -84,32 +92,45 @@ namespace Mega_Escritorio
             // Calculate the quote
 
 
-
+            // get the width and depth from the form
             width = (double)deskWidth.Value;
             depth = (double)deskDepth.Value;
 
-            drawers = Decimal.ToInt32(drawerNum.Value);
+            //calcilate the desk area
+            double area = Desk.deskArea(width, depth);
 
-            double area = width * depth;
-
+            //convert the area to a string and write to the form
             deskArea.Text = area.ToString();
+
+            //get the number of drawers from the form
+            drawers = drawerNum.Value;
+
+            //use the desk class to convert to an integer
+            int drawerInt = Desk.drawersToInt(drawers);
+
+           
+
+ 
 
             double basePrice = 200;
 
-            double drawerCost = drawers * 50;
+            double drawerCost = drawerInt * 50;
 
             double deskAreaPremium = area - 1000;
 
             if (deskAreaPremium < 0) deskAreaPremium = 0;
 
 
-            if (pineRadioButton.Checked) materialPremium = 50;
+            //determine the status of the material selection radio buttons and get a premium
 
-            else if (laminateRadioButton.Checked) materialPremium = 100;
+            if (pineRadioButton.Checked) materialPremium = 50.0;
 
-            else materialPremium = 200;
+            else if (laminateRadioButton.Checked) materialPremium = 100.0;
+
+            else materialPremium = 200.0;
 
  
+            // determine the status of the shipping radio buttons and get a premium
 
             if (threeDayRadio.Checked)
                 {
@@ -135,7 +156,7 @@ namespace Mega_Escritorio
             if (standardRadio.Checked) shippingPremium = 0;
 
 
-            quote = basePrice + deskAreaPremium + drawerCost + materialPremium + shippingPremium;
+            quote = DeskController.makeQuote(basePrice, deskAreaPremium, drawerCost, materialPremium, shippingPremium);
 
             priceQuote.Text = "$" + quote.ToString() + ".00";
 
