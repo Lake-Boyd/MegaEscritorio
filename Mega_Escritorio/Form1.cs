@@ -82,12 +82,70 @@ namespace Mega_Escritorio
 
         }
 
-        private void saveQuote_Click(object sender, EventArgs e)
+        public void saveQuote_Click(object sender, EventArgs e)
         {
+
+            double area = Desk.deskArea(width, depth);
+            string material;
+            //determine the status of the material selection radio buttons and get a premium
+
+            if (pineRadioButton.Checked)
+            {
+                materialPremium = 50.0;
+                material = "Pine";
+            }
+
+            else if (laminateRadioButton.Checked)
+            {
+                materialPremium = 100.0;
+                material = "Laminate";
+            }
+
+            else
+            {
+                materialPremium = 200.0;
+                material = "Oak";
+            }
+
+            int shippingTerms;
+            if (threeDayRadio.Checked)
+            {
+                if (area < 1000) shippingPremium = 60;
+                else if ((area >= 1001) && (area <= 1999)) shippingPremium = 70;
+                else shippingPremium = 80;
+                shippingTerms = 3;
+            }
+
+            else if (fiveDayRadio.Checked)
+            {
+                if (area < 1000) shippingPremium = 40;
+                else if ((area >= 1000) && (area <= 1999)) shippingPremium = 50;
+                else shippingPremium = 60;
+                shippingTerms = 5;
+            }
+
+            else if (sevenDayRadio.Checked)
+            {
+                if (area < 1000) shippingPremium = 30;
+                else if ((area >= 1001) && (area <= 1999)) shippingPremium = 30;
+                else shippingPremium = 40;
+                shippingTerms = 7;
+            }
+
+            else
+            {
+                shippingPremium = 0;
+                shippingTerms = 14;
+            }
+
+            int drawerInt = Desk.drawersToInt(drawers);
+
+            DeskController.writeQuote(width, depth, drawerInt, material, shippingTerms, quote);
+ 
 
         }
 
-        private void calcQuote_Click(object sender, EventArgs e)
+        public void calcQuote_Click(object sender, EventArgs e)
         {
             // Calculate the quote
 
@@ -120,23 +178,35 @@ namespace Mega_Escritorio
 
             if (deskAreaPremium < 0) deskAreaPremium = 0;
 
-
+            string material;
             //determine the status of the material selection radio buttons and get a premium
 
-            if (pineRadioButton.Checked) materialPremium = 50.0;
+            if (pineRadioButton.Checked)
+            {
+                materialPremium = 50.0;
+                material = "Pine";
+            }
 
-            else if (laminateRadioButton.Checked) materialPremium = 100.0;
+            else if (laminateRadioButton.Checked)
+            {
+                materialPremium = 100.0;
+                material = "Laminate";
+            }
 
-            else materialPremium = 200.0;
+            else
+            {
+                materialPremium = 200.0;
+                material = "Oak";
+            }
 
- 
             // determine the status of the shipping radio buttons and get a premium
-
+            int shippingTerms;
             if (threeDayRadio.Checked)
                 {
                     if (area < 1000) shippingPremium = 60;
                     else if ((area >= 1001) && (area <= 1999)) shippingPremium = 70;
                     else shippingPremium = 80;
+                    shippingTerms = 3;
                 }
 
             else if (fiveDayRadio.Checked)
@@ -144,6 +214,7 @@ namespace Mega_Escritorio
                     if (area < 1000) shippingPremium = 40;
                     else if ((area >= 1000) && (area <= 1999)) shippingPremium = 50;
                     else shippingPremium = 60;
+                    shippingTerms = 5;
                 }
 
             else if (sevenDayRadio.Checked)
@@ -151,10 +222,13 @@ namespace Mega_Escritorio
                     if (area < 1000) shippingPremium = 30;
                     else if ((area >= 1001) && (area <= 1999)) shippingPremium = 30;
                     else shippingPremium = 40;
+                    shippingTerms = 7;
                 }
 
-            if (standardRadio.Checked) shippingPremium = 0;
-
+            else {
+                    shippingPremium = 0;
+                    shippingTerms = 14;
+                }
 
             quote = DeskController.makeQuote(basePrice, deskAreaPremium, drawerCost, materialPremium, shippingPremium);
 

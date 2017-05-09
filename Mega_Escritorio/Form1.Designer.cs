@@ -50,6 +50,7 @@
             this.deskWidthLabel = new System.Windows.Forms.Label();
             this.deskDepthLabel = new System.Windows.Forms.Label();
             this.calculateQuote = new System.Windows.Forms.Button();
+            this.errorDisplay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerNum)).BeginInit();
@@ -298,11 +299,21 @@
             this.calculateQuote.UseVisualStyleBackColor = true;
             this.calculateQuote.Click += new System.EventHandler(this.calcQuote_Click);
             // 
+            // errorDisplay
+            // 
+            this.errorDisplay.ForeColor = System.Drawing.Color.Red;
+            this.errorDisplay.Location = new System.Drawing.Point(542, 420);
+            this.errorDisplay.Name = "errorDisplay";
+            this.errorDisplay.Size = new System.Drawing.Size(184, 38);
+            this.errorDisplay.TabIndex = 24;
+            this.errorDisplay.Text = "--";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 481);
+            this.Controls.Add(this.errorDisplay);
             this.Controls.Add(this.calculateQuote);
             this.Controls.Add(this.deskDepthLabel);
             this.Controls.Add(this.deskWidthLabel);
@@ -357,6 +368,7 @@
         private System.Windows.Forms.Label deskWidthLabel;
         private System.Windows.Forms.Label deskDepthLabel;
         private System.Windows.Forms.Button calculateQuote;
+        private System.Windows.Forms.Label errorDisplay;
     }
 }
 
