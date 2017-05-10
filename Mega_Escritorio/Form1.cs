@@ -243,47 +243,37 @@ namespace Mega_Escritorio
         private void loadQuotes_Click(object sender, EventArgs e)
         {
 
-            string path;
-            path = @"c:\megaescritorio\quotes.txt";
+            searchBox.Text = DeskController.buildQuoteSheet();
 
-            StreamReader reader = new StreamReader(path);
 
-            //  string[] quoteList = new string[];
+        }
 
-            ArrayList quoteList = new ArrayList();
+        private void searchMaterial_Click(object sender, EventArgs e)
+        {
+            string materialName;
 
-            int i = -1;
-            while (reader.EndOfStream == false)
+            if (pineRadioButton.Checked)
             {
-                string line = reader.ReadLine();
-                i++;
-                quoteList.Add(line);
-            }
-            reader.Close();
 
-            // int j = 6;
-            // string[,] quotesArray = new string[j, i];
-            // int counter = 0;
-            string text = "Material\tWidth\tDepth\tDrawers\tShipping\tQuote\tDate" + Environment.NewLine;
-            foreach (string row in quoteList)
-            {
-                string[] results = row.Split(',');
-
-                //    int pcounter = 0;
-                string paramString = "";
-                foreach (string param in results)
-                {
-
-                    paramString += param + "\t";
-             //      quotesArray[counter, pcounter] = param;
-             //      pcounter++;
-                 }
-             //    counter++;
-                text += paramString + Environment.NewLine;
-
+                materialName = "Pine";
             }
 
-            searchBox.Text = text;
+            else if (laminateRadioButton.Checked)
+            {
+
+                materialName = "Laminate";
+            }
+
+            else
+            {
+
+                materialName = "Oak";
+            }
+
+
+
+            searchBox.Text = DeskController.searchQuoteSheet(materialName);
+
 
 
         }

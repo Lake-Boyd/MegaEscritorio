@@ -94,11 +94,116 @@ namespace Mega_Escritorio
             }
 
 
-            public static void buildQuoteSheet()
+            public static string buildQuoteSheet()
             {
 
+                string path;
+                path = @"c:\megaescritorio\quotes.txt";
+
+                StreamReader reader = new StreamReader(path);
+
+                //  string[] quoteList = new string[];
+
+                ArrayList quoteList = new ArrayList();
+
+                int i = -1;
+                while (reader.EndOfStream == false)
+                {
+                    string line = reader.ReadLine();
+                    i++;
+                    quoteList.Add(line);
+                }
+                reader.Close();
+
+                // int j = 6;
+                // string[,] quotesArray = new string[j, i];
+                // int counter = 0;
+                string text = "Num\tMaterial\tWidth\tDepth\tDrawers\tShipping\tQuote\tDate" + Environment.NewLine;
+                int pcounter = 0;
+                foreach (string row in quoteList)
+                {
+                    string[] results = row.Split(',');
 
 
+                    string pcounterString;
+                    string paramString = "";
+                    pcounterString = pcounter.ToString() + ":\t";
+                    foreach (string param in results)
+                    {
+
+                        paramString += param + "\t";
+                        //      quotesArray[counter, pcounter] = param;
+
+                    }
+
+                    text += pcounterString + paramString + Environment.NewLine;
+                    pcounter++;
+                    //    counter++;
+
+
+                }
+
+                return text;
+
+            }
+
+
+            public static string searchQuoteSheet( string materialName)
+            {
+
+                string path;
+                path = @"c:\megaescritorio\quotes.txt";
+
+                StreamReader reader = new StreamReader(path);
+
+                //  string[] quoteList = new string[];
+
+                ArrayList quoteList = new ArrayList();
+
+                int i = -1;
+                while (reader.EndOfStream == false)
+                {
+                    string line = reader.ReadLine();
+                    i++;
+
+                    if (line.StartsWith(materialName))
+                    {
+                        quoteList.Add(line);
+                    }
+
+
+                }
+                reader.Close();
+
+                // int j = 6;
+                // string[,] quotesArray = new string[j, i];
+                // int counter = 0;
+                string text = "Num\tMaterial\tWidth\tDepth\tDrawers\tShipping\tQuote\tDate" + Environment.NewLine;
+                int pcounter = 0;
+                foreach (string row in quoteList)
+                {
+                    string[] results = row.Split(',');
+
+
+                    string pcounterString;
+                    string paramString = "";
+                    pcounterString = pcounter.ToString() + ":\t";
+                    foreach (string param in results)
+                    {
+
+                        paramString += param + "\t";
+                        //      quotesArray[counter, pcounter] = param;
+
+                    }
+
+                    text += pcounterString + paramString + Environment.NewLine;
+                    pcounter++;
+                    //    counter++;
+
+
+                }
+
+                return text;
 
 
 

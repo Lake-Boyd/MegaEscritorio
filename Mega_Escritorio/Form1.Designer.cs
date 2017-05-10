@@ -50,10 +50,10 @@
             this.deskWidthLabel = new System.Windows.Forms.Label();
             this.deskDepthLabel = new System.Windows.Forms.Label();
             this.calculateQuote = new System.Windows.Forms.Button();
-            this.searchMaterials = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.loadQuotes = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchMaterial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerNum)).BeginInit();
@@ -150,11 +150,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(452, 51);
+            this.label3.Location = new System.Drawing.Point(378, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(172, 17);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Desktop Area:";
+            this.label3.Text = "Desktop Area (sq inches):";
             // 
             // saveQuote
             // 
@@ -302,19 +302,6 @@
             this.calculateQuote.UseVisualStyleBackColor = true;
             this.calculateQuote.Click += new System.EventHandler(this.calcQuote_Click);
             // 
-            // searchMaterials
-            // 
-            this.searchMaterials.FormattingEnabled = true;
-            this.searchMaterials.Items.AddRange(new object[] {
-            "Oak",
-            "Laminate",
-            "Pine"});
-            this.searchMaterials.Location = new System.Drawing.Point(73, 336);
-            this.searchMaterials.Name = "searchMaterials";
-            this.searchMaterials.Size = new System.Drawing.Size(151, 21);
-            this.searchMaterials.TabIndex = 26;
-            this.searchMaterials.Text = "Select a material to search";
-            // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -348,15 +335,26 @@
             this.searchBox.Size = new System.Drawing.Size(638, 200);
             this.searchBox.TabIndex = 29;
             // 
+            // searchMaterial
+            // 
+            this.searchMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchMaterial.Location = new System.Drawing.Point(255, 323);
+            this.searchMaterial.Name = "searchMaterial";
+            this.searchMaterial.Size = new System.Drawing.Size(234, 38);
+            this.searchMaterial.TabIndex = 30;
+            this.searchMaterial.Text = "Search for Selected Material";
+            this.searchMaterial.UseVisualStyleBackColor = true;
+            this.searchMaterial.Click += new System.EventHandler(this.searchMaterial_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 632);
+            this.Controls.Add(this.searchMaterial);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.loadQuotes);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.searchMaterials);
             this.Controls.Add(this.calculateQuote);
             this.Controls.Add(this.deskDepthLabel);
             this.Controls.Add(this.deskWidthLabel);
@@ -411,10 +409,10 @@
         private System.Windows.Forms.Label deskWidthLabel;
         private System.Windows.Forms.Label deskDepthLabel;
         private System.Windows.Forms.Button calculateQuote;
-        private System.Windows.Forms.ComboBox searchMaterials;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button loadQuotes;
         private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button searchMaterial;
     }
 }
 
