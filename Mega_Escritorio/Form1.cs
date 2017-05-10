@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -234,6 +236,54 @@ namespace Mega_Escritorio
 
             priceQuote.Text = "$" + quote.ToString() + ".00";
 
+
+
+        }
+
+        private void loadQuotes_Click(object sender, EventArgs e)
+        {
+
+            string path;
+            path = @"c:\megaescritorio\quotes.txt";
+
+            StreamReader reader = new StreamReader(path);
+
+            //  string[] quoteList = new string[];
+
+            ArrayList quoteList = new ArrayList();
+
+            int i = -1;
+            while (reader.EndOfStream == false)
+            {
+                string line = reader.ReadLine();
+                i++;
+                quoteList.Add(line);
+            }
+            reader.Close();
+
+            // int j = 6;
+            // string[,] quotesArray = new string[j, i];
+            // int counter = 0;
+            string text = "Material\tWidth\tDepth\tDrawers\tShipping\tQuote\tDate" + Environment.NewLine;
+            foreach (string row in quoteList)
+            {
+                string[] results = row.Split(',');
+
+                //    int pcounter = 0;
+                string paramString = "";
+                foreach (string param in results)
+                {
+
+                    paramString += param + "\t";
+             //      quotesArray[counter, pcounter] = param;
+             //      pcounter++;
+                 }
+             //    counter++;
+                text += paramString + Environment.NewLine;
+
+            }
+
+            searchBox.Text = text;
 
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace Mega_Escritorio
                 string writeShipTerms = System.Convert.ToString(shipTerms);
                 string writeQuote = System.Convert.ToString(quote);
                 DateTime now = DateTime.Now;
-                string writeDate = now.ToString("D");
+                string writeDate = now.ToString("d");
 
                 string quoteLine = material + "," + writeWidth + "," + writeDepth + "," + writeDrawerNumber + "," + writeShipTerms + "," + writeQuote + "," + writeDate;
 
@@ -91,6 +92,20 @@ namespace Mega_Escritorio
                 return quote;
 
             }
+
+
+            public static void buildQuoteSheet()
+            {
+
+
+
+
+
+
+            }
+
+
+
 
 
         }

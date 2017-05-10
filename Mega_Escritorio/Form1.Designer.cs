@@ -50,7 +50,10 @@
             this.deskWidthLabel = new System.Windows.Forms.Label();
             this.deskDepthLabel = new System.Windows.Forms.Label();
             this.calculateQuote = new System.Windows.Forms.Button();
-            this.errorDisplay = new System.Windows.Forms.Label();
+            this.searchMaterials = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.loadQuotes = new System.Windows.Forms.Button();
+            this.searchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerNum)).BeginInit();
@@ -62,7 +65,7 @@
             // 
             this.deskDepth.DecimalPlaces = 2;
             this.deskDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskDepth.Location = new System.Drawing.Point(51, 121);
+            this.deskDepth.Location = new System.Drawing.Point(73, 49);
             this.deskDepth.Name = "deskDepth";
             this.deskDepth.Size = new System.Drawing.Size(75, 22);
             this.deskDepth.TabIndex = 1;
@@ -74,7 +77,7 @@
             this.deskWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.deskWidth.DecimalPlaces = 2;
             this.deskWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskWidth.Location = new System.Drawing.Point(51, 149);
+            this.deskWidth.Location = new System.Drawing.Point(73, 77);
             this.deskWidth.Name = "deskWidth";
             this.deskWidth.Size = new System.Drawing.Size(75, 22);
             this.deskWidth.TabIndex = 2;
@@ -84,7 +87,7 @@
             // drawerNum
             // 
             this.drawerNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drawerNum.Location = new System.Drawing.Point(51, 193);
+            this.drawerNum.Location = new System.Drawing.Point(73, 131);
             this.drawerNum.Maximum = new decimal(new int[] {
             7,
             0,
@@ -99,25 +102,25 @@
             // deskArea
             // 
             this.deskArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.deskArea.Location = new System.Drawing.Point(526, 127);
+            this.deskArea.Location = new System.Drawing.Point(556, 49);
             this.deskArea.Name = "deskArea";
-            this.deskArea.Size = new System.Drawing.Size(100, 22);
+            this.deskArea.Size = new System.Drawing.Size(155, 22);
             this.deskArea.TabIndex = 5;
             this.deskArea.Text = "--";
             // 
             // priceQuote
             // 
             this.priceQuote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.priceQuote.Location = new System.Drawing.Point(526, 166);
+            this.priceQuote.Location = new System.Drawing.Point(556, 77);
             this.priceQuote.Name = "priceQuote";
-            this.priceQuote.Size = new System.Drawing.Size(100, 22);
+            this.priceQuote.Size = new System.Drawing.Size(155, 22);
             this.priceQuote.TabIndex = 6;
             this.priceQuote.Text = "--";
             // 
             // quoteDate
             // 
             this.quoteDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.quoteDate.Location = new System.Drawing.Point(526, 206);
+            this.quoteDate.Location = new System.Drawing.Point(556, 131);
             this.quoteDate.Name = "quoteDate";
             this.quoteDate.Size = new System.Drawing.Size(155, 22);
             this.quoteDate.TabIndex = 7;
@@ -126,37 +129,37 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(414, 206);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(465, 131);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 17);
+            this.label1.Size = new System.Drawing.Size(85, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Quote Date:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(414, 166);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(463, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.Size = new System.Drawing.Size(87, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Quote Price:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(402, 127);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(452, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 17);
+            this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Desktop Area:";
             // 
             // saveQuote
             // 
             this.saveQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveQuote.Location = new System.Drawing.Point(254, 420);
+            this.saveQuote.Location = new System.Drawing.Point(255, 235);
             this.saveQuote.Name = "saveQuote";
             this.saveQuote.Size = new System.Drawing.Size(234, 38);
             this.saveQuote.TabIndex = 12;
@@ -237,9 +240,9 @@
             this.deskMaterialGroup.Controls.Add(this.pineRadioButton);
             this.deskMaterialGroup.Controls.Add(this.oakRadioButton);
             this.deskMaterialGroup.Controls.Add(this.laminateRadioButton);
-            this.deskMaterialGroup.Location = new System.Drawing.Point(51, 263);
+            this.deskMaterialGroup.Location = new System.Drawing.Point(73, 184);
             this.deskMaterialGroup.Name = "deskMaterialGroup";
-            this.deskMaterialGroup.Size = new System.Drawing.Size(200, 100);
+            this.deskMaterialGroup.Size = new System.Drawing.Size(121, 100);
             this.deskMaterialGroup.TabIndex = 19;
             this.deskMaterialGroup.TabStop = false;
             this.deskMaterialGroup.Text = "Desk Materials";
@@ -250,9 +253,9 @@
             this.shippingTermsGroup.Controls.Add(this.sevenDayRadio);
             this.shippingTermsGroup.Controls.Add(this.threeDayRadio);
             this.shippingTermsGroup.Controls.Add(this.fiveDayRadio);
-            this.shippingTermsGroup.Location = new System.Drawing.Point(526, 254);
+            this.shippingTermsGroup.Location = new System.Drawing.Point(556, 184);
             this.shippingTermsGroup.Name = "shippingTermsGroup";
-            this.shippingTermsGroup.Size = new System.Drawing.Size(200, 122);
+            this.shippingTermsGroup.Size = new System.Drawing.Size(155, 122);
             this.shippingTermsGroup.TabIndex = 20;
             this.shippingTermsGroup.TabStop = false;
             this.shippingTermsGroup.Text = "Shipping Terms";
@@ -261,7 +264,7 @@
             // 
             this.standardRadio.AutoSize = true;
             this.standardRadio.Checked = true;
-            this.standardRadio.Location = new System.Drawing.Point(16, 92);
+            this.standardRadio.Location = new System.Drawing.Point(16, 95);
             this.standardRadio.Name = "standardRadio";
             this.standardRadio.Size = new System.Drawing.Size(111, 17);
             this.standardRadio.TabIndex = 19;
@@ -272,8 +275,8 @@
             // 
             // deskWidthLabel
             // 
-            this.deskWidthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskWidthLabel.Location = new System.Drawing.Point(132, 151);
+            this.deskWidthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskWidthLabel.Location = new System.Drawing.Point(154, 79);
             this.deskWidthLabel.Name = "deskWidthLabel";
             this.deskWidthLabel.Size = new System.Drawing.Size(153, 23);
             this.deskWidthLabel.TabIndex = 21;
@@ -281,8 +284,8 @@
             // 
             // deskDepthLabel
             // 
-            this.deskDepthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deskDepthLabel.Location = new System.Drawing.Point(132, 123);
+            this.deskDepthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskDepthLabel.Location = new System.Drawing.Point(154, 51);
             this.deskDepthLabel.Name = "deskDepthLabel";
             this.deskDepthLabel.Size = new System.Drawing.Size(153, 23);
             this.deskDepthLabel.TabIndex = 22;
@@ -291,7 +294,7 @@
             // calculateQuote
             // 
             this.calculateQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateQuote.Location = new System.Drawing.Point(254, 376);
+            this.calculateQuote.Location = new System.Drawing.Point(255, 191);
             this.calculateQuote.Name = "calculateQuote";
             this.calculateQuote.Size = new System.Drawing.Size(234, 38);
             this.calculateQuote.TabIndex = 23;
@@ -299,21 +302,61 @@
             this.calculateQuote.UseVisualStyleBackColor = true;
             this.calculateQuote.Click += new System.EventHandler(this.calcQuote_Click);
             // 
-            // errorDisplay
+            // searchMaterials
             // 
-            this.errorDisplay.ForeColor = System.Drawing.Color.Red;
-            this.errorDisplay.Location = new System.Drawing.Point(542, 420);
-            this.errorDisplay.Name = "errorDisplay";
-            this.errorDisplay.Size = new System.Drawing.Size(184, 38);
-            this.errorDisplay.TabIndex = 24;
-            this.errorDisplay.Text = "--";
+            this.searchMaterials.FormattingEnabled = true;
+            this.searchMaterials.Items.AddRange(new object[] {
+            "Oak",
+            "Laminate",
+            "Pine"});
+            this.searchMaterials.Location = new System.Drawing.Point(73, 336);
+            this.searchMaterials.Name = "searchMaterials";
+            this.searchMaterials.Size = new System.Drawing.Size(151, 21);
+            this.searchMaterials.TabIndex = 26;
+            this.searchMaterials.Text = "Select a material to search";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(154, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(153, 23);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Drawer Number";
+            // 
+            // loadQuotes
+            // 
+            this.loadQuotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadQuotes.Location = new System.Drawing.Point(255, 279);
+            this.loadQuotes.Name = "loadQuotes";
+            this.loadQuotes.Size = new System.Drawing.Size(234, 38);
+            this.loadQuotes.TabIndex = 28;
+            this.loadQuotes.Text = "Load Quotes";
+            this.loadQuotes.UseVisualStyleBackColor = true;
+            this.loadQuotes.Click += new System.EventHandler(this.loadQuotes_Click);
+            // 
+            // searchBox
+            // 
+            this.searchBox.AcceptsReturn = true;
+            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.searchBox.Location = new System.Drawing.Point(73, 379);
+            this.searchBox.MinimumSize = new System.Drawing.Size(638, 200);
+            this.searchBox.Multiline = true;
+            this.searchBox.Name = "searchBox";
+            this.searchBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.searchBox.ShortcutsEnabled = false;
+            this.searchBox.Size = new System.Drawing.Size(638, 200);
+            this.searchBox.TabIndex = 29;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 481);
-            this.Controls.Add(this.errorDisplay);
+            this.ClientSize = new System.Drawing.Size(784, 632);
+            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.loadQuotes);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.searchMaterials);
             this.Controls.Add(this.calculateQuote);
             this.Controls.Add(this.deskDepthLabel);
             this.Controls.Add(this.deskWidthLabel);
@@ -368,7 +411,10 @@
         private System.Windows.Forms.Label deskWidthLabel;
         private System.Windows.Forms.Label deskDepthLabel;
         private System.Windows.Forms.Button calculateQuote;
-        private System.Windows.Forms.Label errorDisplay;
+        private System.Windows.Forms.ComboBox searchMaterials;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button loadQuotes;
+        private System.Windows.Forms.TextBox searchBox;
     }
 }
 
