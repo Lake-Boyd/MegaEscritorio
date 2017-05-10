@@ -254,23 +254,16 @@ namespace Mega_Escritorio
 
             if (pineRadioButton.Checked)
             {
-
                 materialName = "Pine";
             }
-
             else if (laminateRadioButton.Checked)
             {
-
                 materialName = "Laminate";
             }
-
             else
             {
-
                 materialName = "Oak";
             }
-
-
 
             searchBox.Text = DeskController.searchQuoteSheet(materialName);
 
