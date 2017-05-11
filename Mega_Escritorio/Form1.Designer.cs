@@ -1,6 +1,6 @@
 ﻿namespace Mega_Escritorio
 {
-    partial class Form1
+    partial class Form
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,7 @@
             this.searchMaterial = new System.Windows.Forms.Button();
             this.deleteQuoteNumber = new System.Windows.Forms.NumericUpDown();
             this.deleteQuote = new System.Windows.Forms.Button();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerNum)).BeginInit();
@@ -329,7 +330,7 @@
             // 
             this.searchBox.AcceptsReturn = true;
             this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.searchBox.Location = new System.Drawing.Point(73, 379);
+            this.searchBox.Location = new System.Drawing.Point(73, 437);
             this.searchBox.MinimumSize = new System.Drawing.Size(638, 200);
             this.searchBox.Multiline = true;
             this.searchBox.Name = "searchBox";
@@ -353,11 +354,6 @@
             // 
             this.deleteQuoteNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteQuoteNumber.Location = new System.Drawing.Point(556, 329);
-            this.deleteQuoteNumber.Maximum = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
             this.deleteQuoteNumber.Name = "deleteQuoteNumber";
             this.deleteQuoteNumber.Size = new System.Drawing.Size(51, 22);
             this.deleteQuoteNumber.TabIndex = 31;
@@ -373,11 +369,20 @@
             this.deleteQuote.UseVisualStyleBackColor = true;
             this.deleteQuote.Click += new System.EventHandler(this.deleteQuote_Click);
             // 
+            // errorMessage
+            // 
+            this.errorMessage.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage.Location = new System.Drawing.Point(73, 381);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(638, 40);
+            this.errorMessage.TabIndex = 33;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 632);
+            this.ClientSize = new System.Drawing.Size(784, 690);
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.deleteQuote);
             this.Controls.Add(this.deleteQuoteNumber);
             this.Controls.Add(this.searchMaterial);
@@ -445,6 +450,7 @@
         private System.Windows.Forms.Button searchMaterial;
         private System.Windows.Forms.NumericUpDown deleteQuoteNumber;
         private System.Windows.Forms.Button deleteQuote;
+        private System.Windows.Forms.Label errorMessage;
     }
 }
 

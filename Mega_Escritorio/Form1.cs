@@ -17,8 +17,9 @@ namespace Mega_Escritorio
 
 
 
-    public partial class Form1 : Form
+    public partial class Form : System.Windows.Forms.Form
     {
+
 
 
 
@@ -33,15 +34,16 @@ namespace Mega_Escritorio
 
         double quote;
 
-        public Form1()
+        public Form()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            int quoteCount = DeskController.countQuotes();
+            deleteQuoteNumber.Maximum = quoteCount;
 
-        
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,7 +145,11 @@ namespace Mega_Escritorio
             int drawerInt = Desk.drawersToInt(drawers);
 
             DeskController.writeQuote(width, depth, drawerInt, material, shippingTerms, quote);
- 
+
+            searchBox.Text = DeskController.buildQuoteSheet();
+            int quoteCount = DeskController.countQuotes();
+            deleteQuoteNumber.Maximum = quoteCount;
+
 
         }
 
@@ -244,6 +250,8 @@ namespace Mega_Escritorio
         {
 
             searchBox.Text = DeskController.buildQuoteSheet();
+            int quoteCount = DeskController.countQuotes();
+            deleteQuoteNumber.Maximum = quoteCount;
 
 
         }
@@ -277,11 +285,25 @@ namespace Mega_Escritorio
 
  
         int quoteNum = Desk.drawersToInt(deleteQuoteNumber.Value);
+        int quoteCount = DeskController.countQuotes();
 
+            if (quoteNum <= quoteCount)
+            {
+                DeskController.deleteQuote(quoteNum);
+                searchBox.Text = DeskController.buildQuoteSheet();
+                quoteCount = DeskController.countQuotes();
+                deleteQuoteNumber.Maximum = quoteCount;
+            }
+            else
+            {
 
-        DeskController.deleteQuote(quoteNum);
+                errorMessage.Text = "Quote number is out of range. Try again.";
+
+            }
 
         }
+
+
 
     }
 }
