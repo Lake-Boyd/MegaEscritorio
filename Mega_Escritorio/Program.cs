@@ -210,6 +210,47 @@ namespace Mega_Escritorio
             }
 
 
+            public static void deleteQuote(int quoteNum)
+                {
+
+                string path;
+                path = @"c:\megaescritorio\quotes.txt";
+
+                StreamReader reader = new StreamReader(path);
+
+                //  string[] quoteList = new string[];
+
+                ArrayList quoteList = new ArrayList();
+
+                int i = -1;
+                while (reader.EndOfStream == false)
+                {
+                    string line = reader.ReadLine();
+                    i++;
+
+                    if (i != quoteNum)
+                    {
+                        quoteList.Add(line);
+                    }
+
+
+                }
+                reader.Close();
+
+                StreamWriter writer = new StreamWriter(path);
+
+                foreach (string row in quoteList)
+                {
+                    writer.WriteLine(row);
+
+                }
+
+                writer.Close();
+
+
+            }
+
+
 
 
 

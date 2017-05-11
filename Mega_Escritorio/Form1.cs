@@ -270,5 +270,18 @@ namespace Mega_Escritorio
 
 
         }
+
+        private void deleteQuote_Click(object sender, EventArgs e)
+
+        { 
+
+ 
+        int quoteNum = Desk.drawersToInt(deleteQuoteNumber.Value);
+
+
+        DeskController.deleteQuote(quoteNum);
+
+        }
+
     }
 }
