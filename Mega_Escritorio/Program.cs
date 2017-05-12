@@ -212,15 +212,15 @@ namespace Mega_Escritorio
                     reader.Close();
 
 
-                    text = "Num\tMaterial\tWidth\tDepth\tDrawers\tShipping\tQuote\tDate" + Environment.NewLine;
+                    text = "Material\tWidth\tDepth\tDrawers\tShipping\tQuote\tDate" + Environment.NewLine;
                     int pcounter = 0;
                     foreach (string row in quoteList)
                     {
                         string[] results = row.Split(',');
 
-                        string pcounterString;
+                       // string pcounterString;
                         string paramString = "";
-                        pcounterString = pcounter.ToString() + ":\t";
+                        // pcounterString = pcounter.ToString() + ":\t";
                         foreach (string param in results)
                         {
 
@@ -228,7 +228,7 @@ namespace Mega_Escritorio
 
                         }
 
-                        text += pcounterString + paramString + Environment.NewLine;
+                        text += paramString + Environment.NewLine;
                         pcounter++;
 
                     }
@@ -256,7 +256,6 @@ namespace Mega_Escritorio
 
                     StreamReader reader = new StreamReader(path);
 
-                    //  string[] quoteList = new string[];
 
                     ArrayList quoteList = new ArrayList();
 

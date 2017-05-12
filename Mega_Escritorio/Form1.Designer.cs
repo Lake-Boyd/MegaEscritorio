@@ -105,16 +105,16 @@
             // 
             // deskArea
             // 
-            this.deskArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.deskArea.Location = new System.Drawing.Point(556, 49);
+            this.deskArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deskArea.Location = new System.Drawing.Point(556, 51);
             this.deskArea.Name = "deskArea";
-            this.deskArea.Size = new System.Drawing.Size(155, 22);
+            this.deskArea.Size = new System.Drawing.Size(155, 20);
             this.deskArea.TabIndex = 5;
             this.deskArea.Text = "--";
             // 
             // priceQuote
             // 
-            this.priceQuote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.priceQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceQuote.Location = new System.Drawing.Point(556, 77);
             this.priceQuote.Name = "priceQuote";
             this.priceQuote.Size = new System.Drawing.Size(155, 22);
@@ -123,7 +123,7 @@
             // 
             // quoteDate
             // 
-            this.quoteDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.quoteDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quoteDate.Location = new System.Drawing.Point(556, 131);
             this.quoteDate.Name = "quoteDate";
             this.quoteDate.Size = new System.Drawing.Size(155, 22);
@@ -377,7 +377,7 @@
             this.errorMessage.Size = new System.Drawing.Size(638, 40);
             this.errorMessage.TabIndex = 33;
             // 
-            // Form1
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -405,7 +405,7 @@
             this.Controls.Add(this.deskWidth);
             this.Controls.Add(this.deskDepth);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "Form1";
+            this.Name = "Form";
             this.Text = "Mega Escritorio Desk Quote";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).EndInit();

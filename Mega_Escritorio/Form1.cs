@@ -43,6 +43,8 @@ namespace Mega_Escritorio
         {
             int quoteCount = DeskController.countQuotes();
             deleteQuoteNumber.Maximum = quoteCount;
+            DateTime now = DateTime.Now;
+            quoteDate.Text = now.ToString("d");
 
         }
 
@@ -155,7 +157,10 @@ namespace Mega_Escritorio
 
         public void calcQuote_Click(object sender, EventArgs e)
         {
-            // Calculate the quote
+
+  
+
+             // Calculate the quote
 
 
             // get the width and depth from the form
@@ -174,10 +179,7 @@ namespace Mega_Escritorio
             //use the desk class to convert to an integer
             int drawerInt = Desk.drawersToInt(drawers);
 
-           
-
  
-
             double basePrice = 200;
 
             double drawerCost = drawerInt * 50;
@@ -238,9 +240,15 @@ namespace Mega_Escritorio
                     shippingTerms = 14;
                 }
 
+ 
+
             quote = DeskController.makeQuote(basePrice, deskAreaPremium, drawerCost, materialPremium, shippingPremium);
 
+            Desk newDesk = new Desk(width, depth, drawerInt, material, shippingTerms, quote);
+            Console.WriteLine(newDesk);
+
             priceQuote.Text = "$" + quote.ToString() + ".00";
+
 
 
 
