@@ -90,67 +90,94 @@ namespace Mega_Escritorio
 
         public void saveQuote_Click(object sender, EventArgs e)
         {
+            errorMessage.Text = "";
 
-            double area = Desk.deskArea(width, depth);
-            string material;
-            //determine the status of the material selection radio buttons and get a premium
-
-            if (pineRadioButton.Checked)
+            string path;
+            path = @"c:\megaescritorio\quotes.txt";
+            if (File.Exists(path))
             {
-                materialPremium = 50.0;
-                material = "Pine";
-            }
 
-            else if (laminateRadioButton.Checked)
-            {
-                materialPremium = 100.0;
-                material = "Laminate";
+                double area = Desk.deskArea(width, depth);
+                string material;
+                //determine the status of the material selection radio buttons and get a premium
+
+                if (pineRadioButton.Checked)
+                {
+                    materialPremium = 50.0;
+                    material = "Pine";
+                }
+
+                else if (laminateRadioButton.Checked)
+                {
+                    materialPremium = 100.0;
+                    material = "Laminate";
+                }
+
+                else
+                {
+                    materialPremium = 200.0;
+                    material = "Oak";
+                }
+
+                int shippingTerms;
+                if (threeDayRadio.Checked)
+                {
+                    if (area < 1000) shippingPremium = 60;
+                    else if ((area >= 1001) && (area <= 1999)) shippingPremium = 70;
+                    else shippingPremium = 80;
+                    shippingTerms = 3;
+                }
+
+                else if (fiveDayRadio.Checked)
+                {
+                    if (area < 1000) shippingPremium = 40;
+                    else if ((area >= 1000) && (area <= 1999)) shippingPremium = 50;
+                    else shippingPremium = 60;
+                    shippingTerms = 5;
+                }
+
+                else if (sevenDayRadio.Checked)
+                {
+                    if (area < 1000) shippingPremium = 30;
+                    else if ((area >= 1001) && (area <= 1999)) shippingPremium = 30;
+                    else shippingPremium = 40;
+                    shippingTerms = 7;
+                }
+
+                else
+                {
+                    shippingPremium = 0;
+                    shippingTerms = 14;
+                }
+
+                int drawerInt = Desk.drawersToInt(drawers);
+
+                DeskController.writeQuote(width, depth, drawerInt, material, shippingTerms, quote);
+
+                searchBox.Text = DeskController.buildQuoteSheet();
+                int quoteCount = DeskController.countQuotes();
+                deleteQuoteNumber.Maximum = quoteCount;
             }
 
             else
             {
-                materialPremium = 200.0;
-                material = "Oak";
+                errorMessage.Text = "Path, c:\\megaescritorio\\quotes.txt does not exist. Trying to create the file. ";
+
+                try
+                {
+                    StreamWriter writer;
+                    writer = new StreamWriter(path);
+                    writer.Close();
+
+                }
+                catch
+                {
+                    
+                    errorMessage.Text += "...Could not create the file in the path!! Make sure there is a folder called megaescritorio!!";
+
+                }
+
             }
-
-            int shippingTerms;
-            if (threeDayRadio.Checked)
-            {
-                if (area < 1000) shippingPremium = 60;
-                else if ((area >= 1001) && (area <= 1999)) shippingPremium = 70;
-                else shippingPremium = 80;
-                shippingTerms = 3;
-            }
-
-            else if (fiveDayRadio.Checked)
-            {
-                if (area < 1000) shippingPremium = 40;
-                else if ((area >= 1000) && (area <= 1999)) shippingPremium = 50;
-                else shippingPremium = 60;
-                shippingTerms = 5;
-            }
-
-            else if (sevenDayRadio.Checked)
-            {
-                if (area < 1000) shippingPremium = 30;
-                else if ((area >= 1001) && (area <= 1999)) shippingPremium = 30;
-                else shippingPremium = 40;
-                shippingTerms = 7;
-            }
-
-            else
-            {
-                shippingPremium = 0;
-                shippingTerms = 14;
-            }
-
-            int drawerInt = Desk.drawersToInt(drawers);
-
-            DeskController.writeQuote(width, depth, drawerInt, material, shippingTerms, quote);
-
-            searchBox.Text = DeskController.buildQuoteSheet();
-            int quoteCount = DeskController.countQuotes();
-            deleteQuoteNumber.Maximum = quoteCount;
 
 
         }

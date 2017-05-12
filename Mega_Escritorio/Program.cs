@@ -64,38 +64,39 @@ namespace Mega_Escritorio
 
                 try
                 {
+                        StreamReader reader = new StreamReader(path);
+                        List<string> fileStrings = new List<string>();
 
-                StreamReader reader = new StreamReader(path);
-                    List<string> fileStrings = new List<string>();
+                        while (reader.EndOfStream == false)
+                        {
+                            string line = reader.ReadLine();
+                            fileStrings.Add(line);
+                        }
+                        reader.Close();
 
-                    while (reader.EndOfStream == false)
-                    {
-                        string line = reader.ReadLine();
-                        fileStrings.Add(line);
-                    }
-                    reader.Close();
+                        string writeWidth = System.Convert.ToString(width);
+                        string writeDepth = System.Convert.ToString(depth);
+                        string writeDrawerNumber = System.Convert.ToString(drawers);
+                        string writeShipTerms = System.Convert.ToString(shipTerms);
+                        string writeQuote = System.Convert.ToString(quote);
+                        DateTime now = DateTime.Now;
+                        string writeDate = now.ToString("d");
 
-                    string writeWidth = System.Convert.ToString(width);
-                    string writeDepth = System.Convert.ToString(depth);
-                    string writeDrawerNumber = System.Convert.ToString(drawers);
-                    string writeShipTerms = System.Convert.ToString(shipTerms);
-                    string writeQuote = System.Convert.ToString(quote);
-                    DateTime now = DateTime.Now;
-                    string writeDate = now.ToString("d");
+                        string quoteLine = material + "," + writeWidth + "," + writeDepth + "," + writeDrawerNumber + "," + writeShipTerms + "," + writeQuote + "," + writeDate;
 
-                    string quoteLine = material + "," + writeWidth + "," + writeDepth + "," + writeDrawerNumber + "," + writeShipTerms + "," + writeQuote + "," + writeDate;
+                        fileStrings.Add(quoteLine);
 
-                    fileStrings.Add(quoteLine);
+                        StreamWriter writer;
+                        writer = new StreamWriter(path);
 
-                    StreamWriter writer;
-                    writer = new StreamWriter(path);
+                        foreach (string line in fileStrings)
+                        {
+                            writer.WriteLine(line);
 
-                    foreach (string line in fileStrings)
-                    {
-                        writer.WriteLine(line);
+                        }
+                        writer.Close();
 
-                    }
-                    writer.Close();
+
 
                 }
                 catch (Exception e)
@@ -103,7 +104,6 @@ namespace Mega_Escritorio
                     Console.WriteLine(e.Message);
 
                 }
-
 
             }
 
