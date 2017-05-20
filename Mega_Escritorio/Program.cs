@@ -24,6 +24,8 @@ namespace Mega_Escritorio
             int shipTerms = 0;
             double deskQuote = 0;
 
+            // The Desk class and parameters
+
             public Desk (double inDeskWidth, double inDeskDepth, int inDrawerNum, string inDeskMaterial, int inShipTerms, double inDeskQuote)
             {
                 deskWidth = inDeskWidth;
@@ -35,6 +37,8 @@ namespace Mega_Escritorio
 
             }
 
+            // compute desk area
+
             public static double deskArea(double width, double depth)
             {
 
@@ -42,6 +46,8 @@ namespace Mega_Escritorio
                 return area;
 
             }
+
+            // convert drawer number from a decimal to an integer.
 
             public static int drawersToInt(decimal drawers)
             {
@@ -56,11 +62,15 @@ namespace Mega_Escritorio
         public class DeskController
         {
 
+            //open a read stream and read the quotes into a list, add the quote to the list, then save the new file over the old file.
+
             internal static void writeQuote( double width, double depth, int drawers, string material, int shipTerms, double quote)
             {
 
                 string path;
                 path = @"c:\megaescritorio\quotes.txt";
+
+ 
 
                 try
                 {
@@ -107,6 +117,7 @@ namespace Mega_Escritorio
 
             }
 
+            //add all the quote variables to compute the quote and return it
 
             public static double makeQuote(double x, double y, double z, double i, double j )
             {
@@ -126,6 +137,8 @@ namespace Mega_Escritorio
             }
 
 
+            //read the quote file and build the quote sheet using an arraylist, with each line as a string value in the array.ist. Then create the ouput
+            // by reading the arraylist, splitting the delimited string into individual strings to build the output and display the output.
             public static string buildQuoteSheet()
             {
                 string text = null;
@@ -184,6 +197,8 @@ namespace Mega_Escritorio
             }
 
 
+            // search the quote sheet per materialName and build an output sheet and display it.
+
             public static string searchQuoteSheet( string materialName)
             {
                 string text = null;
@@ -217,10 +232,8 @@ namespace Mega_Escritorio
                     foreach (string row in quoteList)
                     {
                         string[] results = row.Split(',');
-
-                       // string pcounterString;
                         string paramString = "";
-                        // pcounterString = pcounter.ToString() + ":\t";
+ 
                         foreach (string param in results)
                         {
 
@@ -245,6 +258,9 @@ namespace Mega_Escritorio
 
             }
 
+
+            // take the number supplied by the user and delete the corresponding quote from the file by skipping it in a re-write process. Openfile and read and add quotes to an array if they
+            // are not equal to the supplied number.
 
             public static void deleteQuote(int quoteNum)
                 {
@@ -296,6 +312,9 @@ namespace Mega_Escritorio
 
 
             }
+
+
+            // count the quotes in the file
 
             public static int countQuotes()
             {

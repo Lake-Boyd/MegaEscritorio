@@ -41,6 +41,8 @@ namespace Mega_Escritorio
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            // upon loading the form, count the quotes, determine the maximum number of quotes for the deletQuote form field, show the current date
             int quoteCount = DeskController.countQuotes();
             deleteQuoteNumber.Maximum = quoteCount;
             DateTime now = DateTime.Now;
@@ -119,6 +121,8 @@ namespace Mega_Escritorio
                     material = "Oak";
                 }
 
+
+                //determine the status of the shipping terms selection radio buttons and get a premium, select an integer for the terms
                 int shippingTerms;
                 if (threeDayRadio.Checked)
                 {
@@ -268,6 +272,7 @@ namespace Mega_Escritorio
                 }
 
  
+            // this takes the collected data and computes the quote via the makeQuote method
 
             quote = DeskController.makeQuote(basePrice, deskAreaPremium, drawerCost, materialPremium, shippingPremium);
 
@@ -281,8 +286,11 @@ namespace Mega_Escritorio
 
         }
 
+        //this refreshes the list of quotes in the window and resets the upper limit for the deleteQuote number.
+
         private void loadQuotes_Click(object sender, EventArgs e)
         {
+
 
             searchBox.Text = DeskController.buildQuoteSheet();
             int quoteCount = DeskController.countQuotes();
@@ -290,6 +298,8 @@ namespace Mega_Escritorio
 
 
         }
+
+        // this searches the quotes file and displays the results in the window
 
         private void searchMaterial_Click(object sender, EventArgs e)
         {
@@ -313,6 +323,9 @@ namespace Mega_Escritorio
 
 
         }
+
+
+        // this deletes a quote using its listed number to locate its index
 
         private void deleteQuote_Click(object sender, EventArgs e)
 
