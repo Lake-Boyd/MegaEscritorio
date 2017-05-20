@@ -20,10 +20,6 @@ namespace Mega_Escritorio
     public partial class Form : System.Windows.Forms.Form
     {
 
-
-
-
-
         double width;
         double depth;
 
@@ -90,6 +86,45 @@ namespace Mega_Escritorio
 
         }
 
+        // to find the selected readio button within a form control group
+        public int getCheckedRadioButton()
+        {
+            int index = -1;
+
+            if (oakRadioButton.Checked)
+            {
+                index = 0;
+            }
+
+            else if (laminateRadioButton.Checked)
+            {
+                index = 1;
+            }
+
+            else if (pineRadioButton.Checked)
+            {
+                index = 2;
+            }
+
+            else if (ebonyRadioButton.Checked)
+            {
+                index = 3;
+            }
+
+            else if (mapleRadioButton.Checked)
+            {
+                index = 4;
+            }
+
+            else
+            {
+                index = 5;
+            }
+
+            return index;
+
+        }
+
         public void saveQuote_Click(object sender, EventArgs e)
         {
             errorMessage.Text = "";
@@ -100,25 +135,72 @@ namespace Mega_Escritorio
             {
 
                 double area = Desk.deskArea(width, depth);
-                string material;
+
+
                 //determine the status of the material selection radio buttons and get a premium
 
-                if (pineRadioButton.Checked)
-                {
-                    materialPremium = 50.0;
-                    material = "Pine";
-                }
+                int materialIndex = getCheckedRadioButton();
+                DeskMaterials material = DeskMaterials.Pine;
 
-                else if (laminateRadioButton.Checked)
+                switch (materialIndex)
                 {
-                    materialPremium = 100.0;
-                    material = "Laminate";
-                }
 
-                else
-                {
-                    materialPremium = 200.0;
-                    material = "Oak";
+                    case -1:
+                        {
+
+                            errorMessage.Text = "Problem with the material index logic ";
+
+                        }
+                        break;
+
+                    case 0:
+                        {
+                            materialPremium = 200.0;
+                            material = (DeskMaterials)materialIndex;
+
+                        }
+                        break;
+
+                    case 1:
+                        {
+                            materialPremium = 100.0;
+                            material = (DeskMaterials)materialIndex;
+
+                        }
+                        break;
+
+                    case 2:
+                        {
+                            materialPremium = 50.0;
+                            material = (DeskMaterials)materialIndex;
+
+                        }
+                        break;
+
+                    case 3:
+                        {
+                            materialPremium = 295.0;
+                            material = (DeskMaterials)materialIndex;
+
+                        }
+                        break;
+
+                    case 4:
+                        {
+                            materialPremium = 240.0;
+                            material = (DeskMaterials)materialIndex;
+
+                        }
+                        break;
+
+                    case 5:
+                        {
+                            materialPremium = 275.0;
+                            material = (DeskMaterials)materialIndex;
+                            
+                        }
+                        break;
+
                 }
 
 
@@ -189,10 +271,7 @@ namespace Mega_Escritorio
         public void calcQuote_Click(object sender, EventArgs e)
         {
 
-  
-
              // Calculate the quote
-
 
             // get the width and depth from the form
             width = (double)deskWidth.Value;
@@ -219,26 +298,74 @@ namespace Mega_Escritorio
 
             if (deskAreaPremium < 0) deskAreaPremium = 0;
 
-            string material;
+
             //determine the status of the material selection radio buttons and get a premium
 
-            if (pineRadioButton.Checked)
+            int materialIndex = getCheckedRadioButton();
+            DeskMaterials material = DeskMaterials.Pine;
+
+            switch (materialIndex)
             {
-                materialPremium = 50.0;
-                material = "Pine";
+
+                case -1:
+                    {
+
+                        errorMessage.Text = "Problem with the material index logic ";
+
+                    }
+                    break;
+
+                case 0:
+                    {
+                        materialPremium = 200.0;
+                        material = (DeskMaterials)materialIndex;
+
+                    }
+                    break;
+
+                case 1:
+                    {
+                        materialPremium = 100.0;
+                        material = (DeskMaterials)materialIndex;
+
+                    }
+                    break;
+
+                case 2:
+                    {
+                        materialPremium = 50.0;
+                        material = (DeskMaterials)materialIndex;
+
+                    }
+                    break;
+
+                case 3:
+                    {
+                        materialPremium = 225.0;
+                        material = (DeskMaterials)materialIndex;
+
+                    }
+                    break;
+
+                case 4:
+                    {
+                        materialPremium = 240.0;
+                        material = (DeskMaterials)materialIndex;
+
+                    }
+                    break;
+
+                case 5:
+                    {
+                        materialPremium = 275.0;
+                        material = (DeskMaterials)materialIndex;
+
+                    }
+
+                    break;
+
             }
 
-            else if (laminateRadioButton.Checked)
-            {
-                materialPremium = 100.0;
-                material = "Laminate";
-            }
-
-            else
-            {
-                materialPremium = 200.0;
-                material = "Oak";
-            }
 
             // determine the status of the shipping radio buttons and get a premium
             int shippingTerms;
@@ -331,7 +458,6 @@ namespace Mega_Escritorio
 
         { 
 
- 
         int quoteNum = Desk.drawersToInt(deleteQuoteNumber.Value);
         int quoteCount = DeskController.countQuotes();
 
@@ -348,10 +474,6 @@ namespace Mega_Escritorio
                 errorMessage.Text = "Quote number is out of range. Try again.";
 
             }
-
         }
-
-
-
     }
 }

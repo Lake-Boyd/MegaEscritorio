@@ -14,7 +14,9 @@ namespace Mega_Escritorio
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        /// 
+
+
+
         public class Desk
         {
             double deskWidth = 0;
@@ -26,12 +28,12 @@ namespace Mega_Escritorio
 
             // The Desk class and parameters
 
-            public Desk (double inDeskWidth, double inDeskDepth, int inDrawerNum, string inDeskMaterial, int inShipTerms, double inDeskQuote)
+            public Desk (double inDeskWidth, double inDeskDepth, int inDrawerNum, DeskMaterials inDeskMaterial, int inShipTerms, double inDeskQuote)
             {
                 deskWidth = inDeskWidth;
                 deskDepth = inDeskDepth;
                 drawerNum = inDrawerNum;
-                deskMaterial = inDeskMaterial;
+                DeskMaterials deskMaterial = inDeskMaterial;
                 shipTerms = inShipTerms;
                 deskQuote = inDeskQuote;
 
@@ -59,12 +61,22 @@ namespace Mega_Escritorio
 
         }
 
+       public enum DeskMaterials
+        {
+            Oak,
+            Laminate,
+            Pine,
+            Ebony,
+            Maple,
+            Cherry
+        };
+
         public class DeskController
         {
 
             //open a read stream and read the quotes into a list, add the quote to the list, then save the new file over the old file.
 
-            internal static void writeQuote( double width, double depth, int drawers, string material, int shipTerms, double quote)
+            internal static void writeQuote( double width, double depth, int drawers, DeskMaterials material, int shipTerms, double quote)
             {
 
                 string path;
@@ -168,20 +180,16 @@ namespace Mega_Escritorio
                     {
                         string[] results = row.Split(',');
 
-
                         string pcounterString;
                         string paramString = "";
                         pcounterString = pcounter.ToString() + ":\t";
                         foreach (string param in results)
                         {
-
-                            paramString += param + "\t";
- 
-                        }
+                                paramString += param + "\t";
+                         }
 
                         text += pcounterString + paramString + Environment.NewLine;
                         pcounter++;
-
                     }
 
                 }
@@ -190,7 +198,6 @@ namespace Mega_Escritorio
                     Console.WriteLine(e.Message);
 
                 }
-
 
                 return text;
 

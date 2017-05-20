@@ -45,6 +45,7 @@
             this.fiveDayRadio = new System.Windows.Forms.RadioButton();
             this.sevenDayRadio = new System.Windows.Forms.RadioButton();
             this.deskMaterialGroup = new System.Windows.Forms.GroupBox();
+            this.ebonyRadioButton = new System.Windows.Forms.RadioButton();
             this.shippingTermsGroup = new System.Windows.Forms.GroupBox();
             this.standardRadio = new System.Windows.Forms.RadioButton();
             this.deskWidthLabel = new System.Windows.Forms.Label();
@@ -57,6 +58,8 @@
             this.deleteQuoteNumber = new System.Windows.Forms.NumericUpDown();
             this.deleteQuote = new System.Windows.Forms.Button();
             this.errorMessage = new System.Windows.Forms.Label();
+            this.mapleRadioButton = new System.Windows.Forms.RadioButton();
+            this.cherryRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.deskDepth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deskWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawerNum)).BeginInit();
@@ -241,15 +244,28 @@
             // 
             // deskMaterialGroup
             // 
+            this.deskMaterialGroup.Controls.Add(this.cherryRadioButton);
+            this.deskMaterialGroup.Controls.Add(this.mapleRadioButton);
+            this.deskMaterialGroup.Controls.Add(this.ebonyRadioButton);
             this.deskMaterialGroup.Controls.Add(this.pineRadioButton);
             this.deskMaterialGroup.Controls.Add(this.oakRadioButton);
             this.deskMaterialGroup.Controls.Add(this.laminateRadioButton);
             this.deskMaterialGroup.Location = new System.Drawing.Point(73, 184);
             this.deskMaterialGroup.Name = "deskMaterialGroup";
-            this.deskMaterialGroup.Size = new System.Drawing.Size(121, 100);
+            this.deskMaterialGroup.Size = new System.Drawing.Size(121, 177);
             this.deskMaterialGroup.TabIndex = 19;
             this.deskMaterialGroup.TabStop = false;
             this.deskMaterialGroup.Text = "Desk Materials";
+            // 
+            // ebonyRadioButton
+            // 
+            this.ebonyRadioButton.AutoSize = true;
+            this.ebonyRadioButton.Location = new System.Drawing.Point(13, 88);
+            this.ebonyRadioButton.Name = "ebonyRadioButton";
+            this.ebonyRadioButton.Size = new System.Drawing.Size(55, 17);
+            this.ebonyRadioButton.TabIndex = 16;
+            this.ebonyRadioButton.Text = "Ebony";
+            this.ebonyRadioButton.UseVisualStyleBackColor = true;
             // 
             // shippingTermsGroup
             // 
@@ -353,7 +369,7 @@
             // deleteQuoteNumber
             // 
             this.deleteQuoteNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteQuoteNumber.Location = new System.Drawing.Point(556, 329);
+            this.deleteQuoteNumber.Location = new System.Drawing.Point(556, 339);
             this.deleteQuoteNumber.Name = "deleteQuoteNumber";
             this.deleteQuoteNumber.Size = new System.Drawing.Size(51, 22);
             this.deleteQuoteNumber.TabIndex = 31;
@@ -361,7 +377,7 @@
             // deleteQuote
             // 
             this.deleteQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteQuote.Location = new System.Drawing.Point(613, 329);
+            this.deleteQuote.Location = new System.Drawing.Point(613, 339);
             this.deleteQuote.Name = "deleteQuote";
             this.deleteQuote.Size = new System.Drawing.Size(98, 22);
             this.deleteQuote.TabIndex = 32;
@@ -376,6 +392,26 @@
             this.errorMessage.Name = "errorMessage";
             this.errorMessage.Size = new System.Drawing.Size(638, 40);
             this.errorMessage.TabIndex = 33;
+            // 
+            // mapleRadioButton
+            // 
+            this.mapleRadioButton.AutoSize = true;
+            this.mapleRadioButton.Location = new System.Drawing.Point(13, 111);
+            this.mapleRadioButton.Name = "mapleRadioButton";
+            this.mapleRadioButton.Size = new System.Drawing.Size(54, 17);
+            this.mapleRadioButton.TabIndex = 17;
+            this.mapleRadioButton.Text = "Maple";
+            this.mapleRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // cherryRadioButton
+            // 
+            this.cherryRadioButton.AutoSize = true;
+            this.cherryRadioButton.Location = new System.Drawing.Point(13, 134);
+            this.cherryRadioButton.Name = "cherryRadioButton";
+            this.cherryRadioButton.Size = new System.Drawing.Size(55, 17);
+            this.cherryRadioButton.TabIndex = 18;
+            this.cherryRadioButton.Text = "Cherry";
+            this.cherryRadioButton.UseVisualStyleBackColor = true;
             // 
             // Form
             // 
@@ -451,6 +487,9 @@
         private System.Windows.Forms.NumericUpDown deleteQuoteNumber;
         private System.Windows.Forms.Button deleteQuote;
         private System.Windows.Forms.Label errorMessage;
+        private System.Windows.Forms.RadioButton ebonyRadioButton;
+        private System.Windows.Forms.RadioButton mapleRadioButton;
+        private System.Windows.Forms.RadioButton cherryRadioButton;
     }
 }
 
