@@ -144,12 +144,9 @@ namespace Mega_Escritorio
 
                 switch (materialIndex)
                 {
-
                     case -1:
                         {
-
                             errorMessage.Text = "Problem with the material index logic ";
-
                         }
                         break;
 
@@ -157,7 +154,6 @@ namespace Mega_Escritorio
                         {
                             materialPremium = 200.0;
                             material = (DeskMaterials)materialIndex;
-
                         }
                         break;
 
@@ -165,7 +161,6 @@ namespace Mega_Escritorio
                         {
                             materialPremium = 100.0;
                             material = (DeskMaterials)materialIndex;
-
                         }
                         break;
 
@@ -173,7 +168,6 @@ namespace Mega_Escritorio
                         {
                             materialPremium = 50.0;
                             material = (DeskMaterials)materialIndex;
-
                         }
                         break;
 
@@ -181,7 +175,6 @@ namespace Mega_Escritorio
                         {
                             materialPremium = 295.0;
                             material = (DeskMaterials)materialIndex;
-
                         }
                         break;
 
@@ -189,7 +182,6 @@ namespace Mega_Escritorio
                         {
                             materialPremium = 240.0;
                             material = (DeskMaterials)materialIndex;
-
                         }
                         break;
 
@@ -197,10 +189,8 @@ namespace Mega_Escritorio
                         {
                             materialPremium = 275.0;
                             material = (DeskMaterials)materialIndex;
-                            
                         }
                         break;
-
                 }
 
 
@@ -309,9 +299,7 @@ namespace Mega_Escritorio
 
                 case -1:
                     {
-
                         errorMessage.Text = "Problem with the material index logic ";
-
                     }
                     break;
 
@@ -319,7 +307,6 @@ namespace Mega_Escritorio
                     {
                         materialPremium = 200.0;
                         material = (DeskMaterials)materialIndex;
-
                     }
                     break;
 
@@ -327,7 +314,6 @@ namespace Mega_Escritorio
                     {
                         materialPremium = 100.0;
                         material = (DeskMaterials)materialIndex;
-
                     }
                     break;
 
@@ -335,7 +321,6 @@ namespace Mega_Escritorio
                     {
                         materialPremium = 50.0;
                         material = (DeskMaterials)materialIndex;
-
                     }
                     break;
 
@@ -343,7 +328,6 @@ namespace Mega_Escritorio
                     {
                         materialPremium = 225.0;
                         material = (DeskMaterials)materialIndex;
-
                     }
                     break;
 
@@ -351,7 +335,6 @@ namespace Mega_Escritorio
                     {
                         materialPremium = 240.0;
                         material = (DeskMaterials)materialIndex;
-
                     }
                     break;
 
@@ -359,11 +342,8 @@ namespace Mega_Escritorio
                     {
                         materialPremium = 275.0;
                         material = (DeskMaterials)materialIndex;
-
                     }
-
                     break;
-
             }
 
 
